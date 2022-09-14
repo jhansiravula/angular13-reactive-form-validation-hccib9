@@ -17,7 +17,6 @@ interface IUser {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-
   reactiveForm!: FormGroup;
   user: IUser;
 
@@ -30,11 +29,9 @@ export class AppComponent implements OnInit {
       name: new FormControl(this.user.name, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(250),
+        Validators.maxLength(2),
       ]),
-      nickname: new FormControl(this.user.nickname, [
-        Validators.maxLength(10),
-      ]),
+      nickname: new FormControl(this.user.nickname, [Validators.maxLength(10)]),
       email: new FormControl(this.user.email, [
         Validators.required,
         Validators.minLength(1),
@@ -79,5 +76,4 @@ export class AppComponent implements OnInit {
     console.info('Email:', this.user.email);
     console.info('Password:', this.user.password);
   }
-
 }
